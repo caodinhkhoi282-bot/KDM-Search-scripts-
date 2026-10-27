@@ -13,7 +13,7 @@
             --accent: #ff0055;
             --accent-glow: rgba(255, 0, 85, 0.4);
             --bg-dark: #07090e;
-            --panel-bg: rgba(13, 17, 26, 0.85);
+            --panel-bg: rgba(13, 17, 26, 0.95);
             --panel-border: rgba(0, 255, 204, 0.3);
             --text-main: #e2e8f0;
             --text-muted: #94a3b8;
@@ -37,7 +37,8 @@
             background-attachment: fixed;
             color: var(--text-main);
             min-height: 100vh;
-            padding-bottom: 40px;
+            display: flex;
+            flex-direction: column;
         }
 
         /* Header Layout */
@@ -91,11 +92,6 @@
             font-weight: 600;
         }
 
-        .header-actions {
-            display: flex;
-            gap: 10px;
-        }
-
         .btn-add-main {
             background: linear-gradient(135deg, var(--accent), #b3003b);
             color: #fff;
@@ -122,32 +118,23 @@
             max-width: 1100px;
             margin: 25px auto;
             padding: 0 15px;
+            flex: 1;
+            width: 100%;
         }
 
-        /* Search & Filter Bar */
+        /* Search Bar */
         .controls-bar {
             background: var(--panel-bg);
             border: 1px solid var(--panel-border);
             border-radius: 12px;
             padding: 15px;
             margin-bottom: 25px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
             backdrop-filter: blur(8px);
-        }
-
-        @media (min-width: 768px) {
-            .controls-bar {
-                flex-direction: row;
-                align-items: center;
-                justify-content: space-between;
-            }
         }
 
         .search-box {
             position: relative;
-            flex: 1;
+            width: 100%;
         }
 
         .search-box i {
@@ -173,31 +160,6 @@
         .search-box input:focus {
             border-color: var(--primary);
             box-shadow: 0 0 12px var(--primary-glow);
-        }
-
-        .category-tabs {
-            display: flex;
-            gap: 8px;
-            overflow-x: auto;
-            padding-bottom: 5px;
-        }
-
-        .tab-btn {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-muted);
-            padding: 8px 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            white-space: nowrap;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .tab-btn.active, .tab-btn:hover {
-            background: rgba(0, 255, 204, 0.15);
-            border-color: var(--primary);
-            color: var(--primary);
         }
 
         /* Script Grid */
@@ -242,9 +204,6 @@
         }
 
         .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
             margin-bottom: 12px;
         }
 
@@ -254,21 +213,6 @@
             color: #fff;
             font-weight: 700;
         }
-
-        .badge {
-            background: rgba(0, 255, 204, 0.1);
-            color: var(--primary);
-            border: 1px solid var(--primary);
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .badge.blox-fruits { color: #00e5ff; border-color: #00e5ff; background: rgba(0, 229, 255, 0.1); }
-        .badge.king-legacy { color: #ff0055; border-color: #ff0055; background: rgba(255, 0, 85, 0.1); }
-        .badge.util { color: #ffb700; border-color: #ffb700; background: rgba(255, 183, 0, 0.1); }
 
         .card-desc {
             color: var(--text-muted);
@@ -334,7 +278,46 @@
             color: #fff;
         }
 
-        /* Modal Popup */
+        /* Footer Telegram Button */
+        footer {
+            background: rgba(10, 14, 23, 0.95);
+            border-top: 1px solid var(--panel-border);
+            padding: 25px 20px;
+            text-align: center;
+            margin-top: 50px;
+            backdrop-filter: blur(10px);
+        }
+
+        .telegram-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #0088cc, #005f99);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            box-shadow: 0 0 20px rgba(0, 136, 204, 0.4);
+            transition: all 0.3s ease;
+            margin-bottom: 12px;
+            border: 1px solid #00bfff;
+        }
+
+        .telegram-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(0, 136, 204, 0.7);
+            background: linear-gradient(135deg, #0099ff, #0073b1);
+        }
+
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        /* Modal Popup chung */
         .modal {
             display: none;
             position: fixed;
@@ -357,7 +340,7 @@
             box-shadow: 0 0 30px var(--primary-glow);
             border-radius: 14px;
             width: 100%;
-            max-width: 500px;
+            max-width: 450px;
             padding: 25px;
             position: relative;
         }
@@ -372,7 +355,7 @@
         .modal-title {
             font-family: 'Orbitron', sans-serif;
             color: #fff;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
         }
 
         .close-btn {
@@ -395,7 +378,7 @@
             font-size: 0.9rem;
         }
 
-        .form-group input, .form-group select, .form-group textarea {
+        .form-group input, .form-group textarea {
             width: 100%;
             padding: 10px 12px;
             background: rgba(5, 7, 12, 0.8);
@@ -412,7 +395,7 @@
             resize: vertical;
         }
 
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+        .form-group input:focus, .form-group textarea:focus {
             border-color: var(--primary);
         }
 
@@ -466,7 +449,7 @@
                 </div>
             </div>
             <div class="header-actions">
-                <button class="btn-add-main" onclick="openModal()">
+                <button class="btn-add-main" onclick="openAuthModal()">
                     <i class="fa-solid fa-plus"></i> Thêm Script
                 </button>
             </div>
@@ -475,23 +458,36 @@
 
     <!-- Main Content -->
     <div class="container">
-        <!-- Search & Filter Bar -->
         <div class="controls-bar">
             <div class="search-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" id="searchInput" placeholder="Tìm kiếm tên script hoặc từ khóa..." oninput="renderScripts()">
             </div>
-            <div class="category-tabs" id="categoryTabs">
-                <button class="tab-btn active" data-cat="all" onclick="filterCategory('all', this)">Tất cả</button>
-                <button class="tab-btn" data-cat="Blox Fruits" onclick="filterCategory('Blox Fruits', this)">Blox Fruits</button>
-                <button class="tab-btn" data-cat="King Legacy" onclick="filterCategory('King Legacy', this)">King Legacy</button>
-                <button class="tab-btn" data-cat="Tiện Ích" onclick="filterCategory('Tiện Ích', this)">Tiện Ích</button>
-            </div>
         </div>
 
-        <!-- Script Cards Grid -->
-        <div class="script-grid" id="scriptGrid">
-            <!-- Render bằng JavaScript -->
+        <div class="script-grid" id="scriptGrid"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <a href="https://t.me/KDMTEAM" target="_blank" class="telegram-btn">
+            <i class="fa-brands fa-telegram fa-lg"></i> Tham gia nhóm Telegram
+        </a>
+        <p class="footer-copy">&copy; KDM TEAM SCRIPT VAULT. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal Nhập Mật Mã Quản Trị -->
+    <div class="modal" id="authModal">
+        <div class="modal-content" style="max-width: 380px;">
+            <div class="modal-header">
+                <h3 class="modal-title">XÁC THỰC QUẢN TRỊ</h3>
+                <button class="close-btn" onclick="closeAuthModal()">&times;</button>
+            </div>
+            <div class="form-group">
+                <label>Nhập mật mã quản trị</label>
+                <input type="password" id="authPasswordInput" placeholder="Nhập mật mã..." onkeydown="if(event.key === 'Enter') verifyPassword()">
+            </div>
+            <button type="button" class="btn-submit" onclick="verifyPassword()">XÁC NHẬN</button>
         </div>
     </div>
 
@@ -508,15 +504,6 @@
                     <input type="text" id="scriptTitle" placeholder="VD: Redz Hub Auto Farm" required>
                 </div>
                 <div class="form-group">
-                    <label>Thể Loại</label>
-                    <select id="scriptCategory">
-                        <option value="Blox Fruits">Blox Fruits</option>
-                        <option value="King Legacy">King Legacy</option>
-                        <option value="Tiện Ích">Tiện Ích</option>
-                        <option value="Khác">Khác</option>
-                    </select>
-                </div>
-                <div class="form-group">
                     <label>Mô Tả Ngắn</label>
                     <input type="text" id="scriptDesc" placeholder="VD: Hack Farm FAST, Auto Chest...">
                 </div>
@@ -530,59 +517,79 @@
     </div>
 
     <!-- Notification Toast -->
-    <div class="toast" id="toast">Đã sao chép Script thành công!</div>
+    <div class="toast" id="toast">Đã xử lý thành công!</div>
 
     <script>
-        // Không còn dữ liệu mẫu, mảng bắt đầu trống rỗng
-        const defaultScripts = [];
+        // --- CẤU HÌNH JSONBIN.IO ĐÃ ĐƯỢC TÍCH HỢP ---
+        const BIN_ID = '6ae03774ac6210605a553429';
+        const MASTER_KEY = '$2a$10$XGCwav1UZtfqe4Zbjcp2ner2I7tuxYEFT7YVCd45HkHLrfv9Juffy';
 
-        let currentCategory = 'all';
+        let cachedScripts = [];
+        let actionType = ''; 
+        let targetDeleteId = null;
 
-        // Lấy danh sách từ LocalStorage hoặc dùng mảng trống
-        function getScripts() {
-            const saved = localStorage.getItem('kdm_scripts');
-            if (!saved) {
-                localStorage.setItem('kdm_scripts', JSON.stringify(defaultScripts));
-                return defaultScripts;
+        // Tải danh sách script từ Cloud
+        async function fetchScripts() {
+            try {
+                const res = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
+                    headers: { 'X-Master-Key': MASTER_KEY }
+                });
+                const data = await res.json();
+                cachedScripts = data.record || [];
+                renderScripts();
+            } catch (err) {
+                console.error("Lỗi tải dữ liệu:", err);
             }
-            return JSON.parse(saved);
         }
 
-        // Render các Script ra giao diện
+        // Cập nhật toàn bộ danh sách lên Cloud
+        async function updateCloudData(newScriptsList) {
+            try {
+                const res = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Master-Key': MASTER_KEY
+                    },
+                    body: JSON.stringify(newScriptsList)
+                });
+                if (res.ok) {
+                    cachedScripts = newScriptsList;
+                    renderScripts();
+                    return true;
+                }
+            } catch (err) {
+                console.error("Lỗi đồng bộ:", err);
+            }
+            return false;
+        }
+
         function renderScripts() {
-            const scripts = getScripts();
             const searchKeyword = document.getElementById('searchInput').value.toLowerCase();
             const grid = document.getElementById('scriptGrid');
             grid.innerHTML = '';
 
-            const filtered = scripts.filter(item => {
-                const matchCategory = currentCategory === 'all' || item.category === currentCategory;
-                const matchSearch = item.title.toLowerCase().includes(searchKeyword) || 
-                                    item.desc.toLowerCase().includes(searchKeyword);
-                return matchCategory && matchSearch;
+            const filtered = cachedScripts.filter(item => {
+                return (item.title && item.title.toLowerCase().includes(searchKeyword)) || 
+                       (item.desc && item.desc.toLowerCase().includes(searchKeyword));
             });
 
             if (filtered.length === 0) {
                 grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 50px 20px;">
                     <i class="fa-solid fa-code" style="font-size: 2.5rem; margin-bottom: 12px; color: var(--primary);"></i>
-                    <p style="font-size: 1.1rem; font-weight: 600;">Chưa có script nào được lưu!</p>
-                    <p style="font-size: 0.85rem; margin-top: 5px;">Nhấn vào nút "Thêm Script" phía trên để bắt đầu thêm script mới của bạn.</p>
+                    <p style="font-size: 1.1rem; font-weight: 600;">Chưa có script nào trên hệ thống đám mây!</p>
+                    <p style="font-size: 0.85rem; margin-top: 5px;">Nhấn vào nút "Thêm Script" phía trên để thêm mới.</p>
                 </div>`;
                 return;
             }
 
             filtered.forEach(item => {
-                let badgeClass = 'util';
-                if(item.category === 'Blox Fruits') badgeClass = 'blox-fruits';
-                if(item.category === 'King Legacy') badgeClass = 'king-legacy';
-
                 const card = document.createElement('div');
                 card.className = 'script-card';
                 card.innerHTML = `
                     <div>
                         <div class="card-header">
                             <h3 class="card-title">${escapeHtml(item.title)}</h3>
-                            <span class="badge ${badgeClass}">${escapeHtml(item.category)}</span>
                         </div>
                         <p class="card-desc">${escapeHtml(item.desc || 'Không có mô tả.')}</p>
                         <div class="code-preview">${escapeHtml(item.code)}</div>
@@ -591,7 +598,7 @@
                         <button class="btn-card btn-copy" onclick="copyCode('${encodeURIComponent(item.code)}')">
                             <i class="fa-regular fa-copy"></i> SAO CHÉP CODE
                         </button>
-                        <button class="btn-card btn-delete" onclick="deleteScript(${item.id})">
+                        <button class="btn-card btn-delete" onclick="openAuthDelete(${item.id})">
                             <i class="fa-solid fa-trash"></i>
                         </button>
                     </div>
@@ -600,54 +607,73 @@
             });
         }
 
-        // Lọc theo Category Tab
-        function filterCategory(cat, element) {
-            currentCategory = cat;
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            element.classList.add('active');
-            renderScripts();
+        function openAuthModal() {
+            actionType = 'add';
+            document.getElementById('authPasswordInput').value = '';
+            document.getElementById('authModal').classList.add('active');
+            setTimeout(() => document.getElementById('authPasswordInput').focus(), 100);
         }
 
-        // Lưu Script mới
-        function saveScript(e) {
+        function closeAuthModal() {
+            document.getElementById('authModal').classList.remove('active');
+        }
+
+        function openAuthDelete(id) {
+            actionType = 'delete';
+            targetDeleteId = id;
+            document.getElementById('authPasswordInput').value = '';
+                        document.getElementById('authModal').classList.add('active');
+            setTimeout(() => document.getElementById('authPasswordInput').focus(), 100);
+        }
+
+        async function verifyPassword() {
+            const password = document.getElementById('authPasswordInput').value;
+            if (password === "caodinhkhoi2822015-1979") {
+                closeAuthModal();
+                if (actionType === 'add') {
+                    document.getElementById('addModal').classList.add('active');
+                } else if (actionType === 'delete' && targetDeleteId !== null) {
+                    const newList = cachedScripts.filter(s => s.id !== targetDeleteId);
+                    const success = await updateCloudData(newList);
+                    if (success) {
+                        showToast('Đã xóa script thành công trên đám mây!');
+                    } else {
+                        alert('Lỗi khi xóa trên đám mây!');
+                    }
+                    targetDeleteId = null;
+                }
+            } else {
+                alert("Mật mã không chính xác!");
+            }
+        }
+
+        async function saveScript(e) {
             e.preventDefault();
             const title = document.getElementById('scriptTitle').value.trim();
-                      const category = document.getElementById('scriptCategory').value;
             const desc = document.getElementById('scriptDesc').value.trim();
             const code = document.getElementById('scriptCode').value.trim();
 
             if (!title || !code) return;
 
-            const scripts = getScripts();
             const newScript = {
                 id: Date.now(),
                 title,
-                category,
                 desc,
                 code
             };
 
-            scripts.unshift(newScript);
-            localStorage.setItem('kdm_scripts', JSON.stringify(scripts));
-            
-            closeModal();
-            document.getElementById('addScriptForm').reset();
-            renderScripts();
-            showToast('Đã thêm Script mới thành công!');
-        }
+            const newList = [newScript, ...cachedScripts];
+            const success = await updateCloudData(newList);
 
-        // Xóa Script
-        function deleteScript(id) {
-            if (confirm('Bạn có chắc chắn muốn xóa Script này khỏi giao diện?')) {
-                let scripts = getScripts();
-                scripts = scripts.filter(s => s.id !== id);
-                localStorage.setItem('kdm_scripts', JSON.stringify(scripts));
-                renderScripts();
-                showToast('Đã xóa script thành công!');
+            if (success) {
+                closeModal();
+                document.getElementById('addScriptForm').reset();
+                showToast('Đã lưu Script thành công lên đám mây!');
+            } else {
+                alert('Lỗi khi lưu lên đám mây!');
             }
         }
 
-        // Copy Code vào Clipboard
         function copyCode(encodedCode) {
             const code = decodeURIComponent(encodedCode);
             navigator.clipboard.writeText(code).then(() => {
@@ -657,16 +683,10 @@
             });
         }
 
-        // Modal Controls
-        function openModal() {
-            document.getElementById('addModal').classList.add('active');
-        }
-
         function closeModal() {
             document.getElementById('addModal').classList.remove('active');
         }
 
-        // Toast Notification
         function showToast(msg) {
             const toast = document.getElementById('toast');
             toast.innerText = msg;
@@ -676,7 +696,6 @@
             }, 2500);
         }
 
-        // Utility Escape HTML
         function escapeHtml(text) {
             const map = {
                 '&': '&amp;',
@@ -688,8 +707,7 @@
             return text.replace(/[&<>"']/g, m => map[m]);
         }
 
-        // Initialize App
-        window.onload = renderScripts;
+        window.onload = fetchScripts;
     </script>
 </body>
 </html>
